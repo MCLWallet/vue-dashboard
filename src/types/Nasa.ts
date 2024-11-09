@@ -1,4 +1,4 @@
-type Nasa = {
+export type Nasa = {
   copyright: string;
   date: string; // Format: YYYY-MM-DD
   explanation: string;

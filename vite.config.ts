@@ -24,6 +24,11 @@ export default defineConfig(({ command, mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/nasa/, ""),
         },
+        "/weather": {
+          target: `https://api.open-meteo.com/v1/forecast?latitude=${env.WEATHER_LAT}&longitude=${env.WEATHER_LON}&current=temperature_2m,weather_code`,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/weather/, ""),
+        },
       },
     },
     plugins: [vue()],
