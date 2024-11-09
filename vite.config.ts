@@ -7,10 +7,15 @@ import path from "path";
 export default defineConfig({
   server: {
     proxy: {
-      "/api": {
+      "/random-film": {
         target: "https://gravel-palm-lion.glitch.me/random",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: (path) => path.replace(/^\/random-film/, ""),
+      },
+      "/colors": {
+        target: "http://colormind.io/api/",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/colors/, ""),
       },
     },
   },

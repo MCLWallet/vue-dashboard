@@ -1,9 +1,16 @@
 <script setup lang="ts">
-import WidgetCard from './components/WidgetCard.vue'
+import ColorWidget from './components/Widgets/ColorWidget.vue';
+import FilmWidget from './components/Widgets/FilmWidget.vue';
+import WidgetCard from './templates/WidgetCard.vue'
 </script>
 
 <template>
-  <WidgetCard />
+  <WidgetCard>
+    <FilmWidget />
+  </WidgetCard>
+  <WidgetCard>
+    <ColorWidget />
+  </WidgetCard>
 </template>
 
 <style scoped></style>
