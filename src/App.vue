@@ -1,16 +1,15 @@
-<script setup lang="ts">
+<script setup>
+import { Container, Draggable } from "vue-dndrop";
 import ColorWidget from './components/Widgets/ColorWidget.vue';
 import FilmWidget from './components/Widgets/FilmWidget.vue';
-import WidgetCard from './templates/WidgetCard.vue'
+
 </script>
 
 <template>
-  <WidgetCard>
+  <div class="main-grid">
     <FilmWidget />
-  </WidgetCard>
-  <WidgetCard>
     <ColorWidget />
-  </WidgetCard>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

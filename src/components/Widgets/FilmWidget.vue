@@ -30,19 +30,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <p v-if="loading">Loading...</p>
-    <p v-else-if="error">{{ error }}</p>
-    <p v-else-if="data">{{ data.Title }}</p>
-    <p v-else>No data available</p>
-    <button @click="fetchData" :disabled="loading">{{ !loading ? "Another Film" : "Loading ..." }}</button>
+    <div class="card">
+        <p v-if="loading">Loading...</p>
+        <p v-else-if="error">{{ error }}</p>
+        <p v-else-if="data">{{ data.Title }}</p>
+        <p v-else>No data available</p>
+        <button @click="fetchData" :disabled="loading">{{ !loading ? "Another Film" : "Loading ..." }}</button>
+    </div>
 </template>
-
-<style scoped>
-.card {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 300px;
-    text-align: center;
-}
-</style>

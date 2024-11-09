@@ -32,30 +32,26 @@ onMounted(() => {
 </script>
 
 <template>
-    <ul class="palette-wrapper">
-        <li v-for="color in data?.result">
-            <div class="color" :style="{ backgroundColor: `rgb(${color[0]}, ${color[1]}, ${color[2]})` }"></div>
-        </li>
-    </ul>
-
-    <!-- <p v-if="loading">Loading...</p>
-    <p v-else-if="error">{{ error }}</p>
-    <p v-else-if="data">{{ data.result }}</p>
-    <p v-else>No data available</p> -->
-    <button @click="fetchData" :disabled="loading">{{ !loading ? "Another Colors" : "Loading ..." }}</button>
+    <div class="card">
+        <ul class="palette-wrapper">
+            <li v-for="color in data?.result">
+                <div class="color" :style="{ backgroundColor: `rgb(${color[0]}, ${color[1]}, ${color[2]})` }"></div>
+            </li>
+        </ul>
+        <button @click="fetchData" :disabled="loading">{{ !loading ? "Another Colors" : "Loading ..." }}</button>
+    </div>
 </template>
 
 <style scoped lang="scss">
 .palette-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(5, 20%);
     list-style: none;
     padding: 0;
 
     li {
         height: 4rem;
         width: 100%;
-        aspect-ratio: 1 / 1;
 
 
         .color {
