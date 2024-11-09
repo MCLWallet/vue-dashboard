@@ -8,8 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target:
-          "https://fixed-kindly-guardian.glitch.me/watchlist?genres=Crime",
+        target: "https://gravel-palm-lion.glitch.me/random",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },

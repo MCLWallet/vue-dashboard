@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Film } from '../types/Film';
 
 // Reactive properties
-const data = ref<null | Film[]>(null);
+const data = ref<null | Film>(null);
 const loading = ref(true);
 const error = ref<string | null>(null);
 
@@ -33,8 +33,9 @@ onMounted(() => {
   <div class="card">
     <p v-if="loading">Loading...</p>
     <p v-else-if="error">{{ error }}</p>
-    <p v-else-if="data && data.length > 0">{{ data[0].Title }}</p>
+    <p v-else-if="data">{{ data.Title }}</p>
     <p v-else>No data available</p>
+    <button @click="fetchData" :disabled="loading">Another Film</button>
   </div>
 </template>
 
