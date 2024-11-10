@@ -8,7 +8,7 @@ const hideSidebar = ref(true)
 
 <template>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-        <h1>Vue Dashboard</h1>
+        <h1>Inspiration Dashboard</h1>
         <button @click="hideSidebar = !hideSidebar" class="navbar-toggler" type="button"
             aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -16,6 +16,7 @@ const hideSidebar = ref(true)
     </nav>
     <aside :class="hideSidebar ? 'sidebar hide' : 'sidebar'">
         <div class="sidebar-header">
+            <i class="bi bi-gear"></i>
             <h2>Settings</h2>
         </div>
         <div class="weather-widget-wrapper">
@@ -56,23 +57,37 @@ const hideSidebar = ref(true)
 
     &:hover {
         width: $sidebar-open-width;
+
+        .sidebar-header {
+            h2 {
+                opacity: 1;
+            }
+        }
     }
 
     .sidebar-header {
         display: flex;
+        justify-content: flex-start;
         align-items: center;
+        gap: .8rem;
 
-        img {
-            width: 42px;
-            border-radius: 50%;
+        .bi {
+            color: white;
+            font-size: x-large;
         }
 
         h2 {
+            opacity: 1;
+            transition: $transition-fade;
             color: #fff;
             font-size: 1.25rem;
             font-weight: 600;
             white-space: nowrap;
-            margin-left: 23px;
+            margin: 0;
+
+            @include media-breakpoint-up(sm) {
+                opacity: 0;
+            }
         }
 
         h4 {

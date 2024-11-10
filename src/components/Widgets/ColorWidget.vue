@@ -40,7 +40,7 @@ onMounted(() => {
         </ul>
         <button class="btn btn-primary" @click="fetchData" :disabled="loading">
             <span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            <span class="sr-only">{{ !loading ? "Another Film" : "Loading..." }}</span>
+            <span class="sr-only">{{ !loading ? "Another Color" : "Loading..." }}</span>
         </button>
     </div>
 </template>

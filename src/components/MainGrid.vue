@@ -1,6 +1,6 @@
 <template>
     <main>
-        <h1>Vue Dashboard</h1>
+        <h1>Inspiration Dashboard</h1>
         <div class="main-grid">
             <slot></slot>
         </div>
