@@ -1,3 +1,4 @@
+// Bootstrap variable overrides
 $custom-border-radius: 1.5rem;
 
 $card-border-radius: $custom-border-radius;
@@ -8,6 +9,11 @@ $box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
 // Import all of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";
+
+// Custom variables
+$sidebar-closed-width: 120px;
+$sidebar-open-width: 260px;
+$header-height: 70px;
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

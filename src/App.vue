@@ -12,6 +12,5 @@ import MainLayout from "./layouts/MainLayout.vue";
     <NasaWidget />
     <ColorWidget />
     <FilmWidget />
-    <WeatherWidget />
   </MainLayout>
 </template>

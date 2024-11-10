@@ -49,11 +49,13 @@ onMounted(() => {
 .palette-wrapper {
     display: grid;
     grid-template-columns: repeat(5, 20%);
+    height: 100%;
+    min-height: 16rem;
     list-style: none;
     padding: 0;
 
     li {
-        height: 4rem;
+        height: 100%;
         width: 100%;
 
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import WeatherWidget from './Widgets/WeatherWidget.vue';
 
 const hideSidebar = ref(true)
 
@@ -15,23 +16,10 @@ const hideSidebar = ref(true)
     </nav>
     <aside :class="hideSidebar ? 'sidebar hide' : 'sidebar'">
         <div class="sidebar-header">
-            <h2>CodingLab</h2>
+            <h2>Settings</h2>
         </div>
-        <ul class="sidebar-links">
-            <li>
-                <a href="#">
-                    Settings
-                </a>
-            </li>
-        </ul>
-        <div class="user-account">
-            <!-- TODO: WeatherWidget -->
-            <div class="user-profile">
-                <div class="user-detail">
-                    <h3>Eva Murphy</h3>
-                    <span>Web Developer</span>
-                </div>
-            </div>
+        <div class="weather-widget-wrapper">
+            <WeatherWidget />
         </div>
     </aside>
 </template>
@@ -42,61 +30,62 @@ const hideSidebar = ref(true)
 .sidebar {
     position: fixed;
     z-index: 10;
-    top: 56px;
+    top: 0;
     left: 0;
     height: 100%;
     display: flex;
     overflow-x: hidden;
     flex-direction: column;
     background: #161a2d;
-    padding: 25px 20px;
+    padding: calc($header-height + 20px) 25px 20px;
     transition: all 0.4s ease;
+    width: $sidebar-open-width;
 
     @include media-breakpoint-up(sm) {
-        top: 0;
-        width: 85px;
+        padding-top: 25px;
+        width: $sidebar-closed-width;
+    }
+
+    &.hide {
+        transform: translateX(calc($sidebar-open-width * -1));
+
+        @include media-breakpoint-up(sm) {
+            transform: unset;
+        }
+    }
+
+    &:hover {
+        width: $sidebar-open-width;
+    }
+
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 42px;
+            border-radius: 50%;
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: 23px;
+        }
+
+        h4 {
+            color: #fff;
+            font-weight: 500;
+            white-space: nowrap;
+            margin: 10px 0;
+            position: relative;
+        }
     }
 }
 
-.sidebar.hide {
-    transform: translateX(-12rem);
-
-    @include media-breakpoint-up(sm) {
-        transform: unset;
-    }
-}
-
-.sidebar:hover {
-    width: 260px;
-}
-
-.sidebar .sidebar-header {
-    display: flex;
-    align-items: center;
-}
-
-.sidebar .sidebar-header img {
-    width: 42px;
-    border-radius: 50%;
-}
-
-.sidebar .sidebar-header h2 {
-    color: #fff;
-    font-size: 1.25rem;
-    font-weight: 600;
-    white-space: nowrap;
-    margin-left: 23px;
-}
-
-.sidebar-links h4 {
-    color: #fff;
-    font-weight: 500;
-    white-space: nowrap;
-    margin: 10px 0;
-    position: relative;
-}
-
-.sidebar-links h4 span {
+.sidebar .sidebar .sidebar-header .sidebar .sidebar-header .sidebar-links .sidebar-links h4 span {
     opacity: 0;
 }
 
@@ -152,45 +141,16 @@ const hideSidebar = ref(true)
     border-radius: 4px;
 }
 
-.user-account {
+.weather-widget-wrapper {
     margin-top: auto;
     padding: 12px 10px;
-    margin-left: -10px;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-    color: #161a2d;
-}
-
-.user-profile img {
-    width: 42px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-}
-
-.user-profile h3 {
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.user-profile span {
-    font-size: 0.775rem;
-    font-weight: 600;
-}
-
-.user-detail {
-    margin-left: 23px;
-    white-space: nowrap;
-}
-
-.sidebar:hover .user-account {
     background: #fff;
     border-radius: 4px;
 }
 
 .navbar {
+    height: $header-height;
+
     @include media-breakpoint-up(sm) {
         display: none;
     }

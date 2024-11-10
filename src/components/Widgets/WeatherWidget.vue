@@ -31,7 +31,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="card">
+    <div class="weather-widget">
         <p v-if="loading">Loading...</p>
         <p v-else-if="error">{{ error }}</p>
         <div v-else-if="data">
@@ -40,3 +40,15 @@ onMounted(() => {
         <p v-else>No data available</p>
     </div>
 </template>
+
+<style lang="scss" scoped>
+.weather-widget {
+    display: flex;
+    justify-content: center;
+
+    p {
+        font-weight: bold;
+        margin: 0;
+    }
+}
+</style>

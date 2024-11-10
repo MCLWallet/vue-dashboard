@@ -11,6 +11,7 @@
 @import "@/assets/styles/style.scss";
 
 main {
+    margin-top: $header-height;
     padding: $container-padding-x;
 
     h1 {
@@ -22,7 +23,8 @@ main {
     }
 
     @include media-breakpoint-up(sm) {
-        margin-left: 85px;
+        margin-top: 0;
+        margin-left: $sidebar-closed-width;
     }
 }
 
