@@ -18,6 +18,7 @@ main {
         display: none;
 
         @include media-breakpoint-up(sm) {
+            margin-bottom: 1.5rem;
             display: block;
         }
     }

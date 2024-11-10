@@ -29,6 +29,11 @@ export default defineConfig(({ command, mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/weather/, ""),
         },
+        "/quote": {
+          target: `https://zenquotes.io/api/today`,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/quote/, ""),
+        },
       },
     },
     plugins: [vue()],

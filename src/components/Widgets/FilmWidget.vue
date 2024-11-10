@@ -41,7 +41,7 @@ onMounted(() => {
                 </h3>
                 <h4>{{ data.Year }}</h4>
                 <p>Genre: {{ data.Genres }}</p>
-                <p>Click the movie/series title to go to its IMDB page!</p>
+                <p>Click the film/series title to go to its IMDB page!</p>
             </div>
             <p v-else>No data available</p>
         </div>
