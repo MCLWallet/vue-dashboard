@@ -35,7 +35,6 @@ onMounted(() => {
         <div class="card-body">
             <h2 class="card-title">NASA Picture of the Day</h2>
             <h3>{{ data?.title }}</h3>
-            <!-- <p class="card-text">{{ data?.explanation }}</p> -->
             <p v-if="loading">Loading...</p>
             <p v-else-if="error">{{ error }}</p>
             <p v-else-if="!data">No data available</p>
@@ -43,9 +42,3 @@ onMounted(() => {
 
     </div>
 </template>
-
-<style scoped lang="scss">
-.card {
-    padding: 0;
-}
-</style>

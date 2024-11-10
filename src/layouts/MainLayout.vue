@@ -1,12 +1,14 @@
 <script setup lang="ts">
+import MainGrid from '../components/MainGrid.vue';
+import Sidebar from '../components/Sidebar.vue';
+
 
 </script>
 
 <template>
-    <div class="main-grid">
+    <Sidebar />
+    <MainGrid>
         <slot></slot>
-    </div>
+    </MainGrid>
+
 </template>
-
-
-<style scoped></style>

@@ -1,0 +1,44 @@
+$custom-border-radius: 1.5rem;
+
+$card-border-radius: $custom-border-radius;
+$card-inner-border-radius: $custom-border-radius;
+$navbar-padding-x: 1rem;
+
+$box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+// Import all of Bootstrap's CSS
+@import "~bootstrap/scss/bootstrap";
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+// Bootstrap components
+.card {
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  box-shadow: $box-shadow;
+}
+.card-img-top {
+  object-fit: cover;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}

@@ -45,7 +45,7 @@ onMounted(() => {
             </div>
             <p v-else>No data available</p>
         </div>
-        <button class="btn btn-secondary" @click="fetchData" :disabled="loading">
+        <button class="btn btn-primary" @click="fetchData" :disabled="loading">
             <span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             <span class="sr-only">{{ !loading ? "Another Film" : "Loading..." }}</span>
         </button>
