@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import { Nasa } from '../../types/Nasa';
 
 // Reactive properties
 const data = ref<null | Nasa>(null);

@@ -30,11 +30,26 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="card">
-        <p v-if="loading">Loading...</p>
-        <p v-else-if="error">{{ error }}</p>
-        <p v-else-if="data">{{ data.Title }}</p>
-        <p v-else>No data available</p>
-        <button @click="fetchData" :disabled="loading">{{ !loading ? "Another Film" : "Loading ..." }}</button>
+    <div class="card film-widget">
+        <div class="card-body">
+            <h2 class="card-title">Film/Series Recommender</h2>
+            <div class="film-content" v-if="data">
+                <h3>
+                    <a :href="data.URL" target="_blank">
+                        {{ data.Title }}
+                    </a>
+                </h3>
+                <h4>{{ data.Year }}</h4>
+                <p>Genre: {{ data.Genres }}</p>
+                <p>Click the movie/series title to go to its IMDB page!</p>
+            </div>
+            <p v-else>No data available</p>
+        </div>
+        <button class="btn btn-secondary" @click="fetchData" :disabled="loading">
+            <span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span class="sr-only">{{ !loading ? "Another Film" : "Loading..." }}</span>
+        </button>
     </div>
 </template>
+
+<style scoped lang="scss"></style>

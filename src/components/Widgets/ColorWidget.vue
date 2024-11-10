@@ -38,7 +38,10 @@ onMounted(() => {
                 <div class="color" :style="{ backgroundColor: `rgb(${color[0]}, ${color[1]}, ${color[2]})` }"></div>
             </li>
         </ul>
-        <button @click="fetchData" :disabled="loading">{{ !loading ? "Another Colors" : "Loading ..." }}</button>
+        <button class="btn btn-secondary" @click="fetchData" :disabled="loading">
+            <span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span class="sr-only">{{ !loading ? "Another Film" : "Loading..." }}</span>
+        </button>
     </div>
 </template>
 
