@@ -7,6 +7,9 @@ $card-border-radius: $custom-border-radius;
 $card-inner-border-radius: $custom-border-radius;
 $navbar-padding-x: 1rem;
 
+$blue: #161a2d;
+$green: #b2ee6e;
+
 $box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 $headings-font-family: Quicksand;
 $headings-font-weight: 200;
@@ -20,6 +23,7 @@ $grid-gutter-width: 2rem;
 $sidebar-closed-width: 120px;
 $sidebar-open-width: 260px;
 $header-height: 70px;
+$image-height: 500px;
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -49,17 +53,38 @@ ul {
 
 // Bootstrap components
 .card {
-  padding: 1rem;
   width: 100%;
   text-align: left;
   box-shadow: $box-shadow;
+  flex-grow: 1;
+
+  .card-img-top {
+    object-fit: cover;
+
+    @include media-breakpoint-up(sm) {
+      max-height: $image-height;
+    }
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: $spacer;
+    .btn {
+      text-align: center;
+    }
+  }
 }
-.card-img-top {
-  object-fit: cover;
-}
+
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+}
+
+// own components
+.widget-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacer;
 }

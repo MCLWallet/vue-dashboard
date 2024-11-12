@@ -151,7 +151,7 @@ const hideSidebar = ref(true)
 }
 
 .sidebar-links li a:hover {
-    color: #161a2d;
+    color: $primary;
     background: #fff;
     border-radius: 4px;
 }
