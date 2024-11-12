@@ -38,6 +38,9 @@ const hideSidebar = ref(true)
                 <a href="#"><i class="bi bi-luggage"></i>Travel</a>
             </li>
             <li>
+                <a class="active" href="#"><i class="bi bi-lightbulb"></i>Inspiration</a>
+            </li>
+            <li>
                 <a href="#"><i class="bi bi-music-note-beamed"></i>Music</a>
             </li>
             <li>
@@ -93,6 +96,10 @@ const hideSidebar = ref(true)
         }
     }
 
+    .bi {
+        color: white;
+    }
+
     .sidebar-header {
         display: flex;
         justify-content: flex-start;
@@ -101,7 +108,6 @@ const hideSidebar = ref(true)
         gap: .8rem;
 
         .bi {
-            color: white;
             font-size: x-large;
         }
 
@@ -129,30 +135,12 @@ const hideSidebar = ref(true)
     }
 }
 
-.sidebar .sidebar .sidebar-header .sidebar .sidebar-header .sidebar-links .sidebar-links h4 span {
+.sidebar-links h4 span {
     opacity: 0;
 }
 
 .sidebar:hover .sidebar-links h4 span {
     opacity: 1;
-}
-
-.sidebar-links .menu-separator {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    height: 1px;
-    transform: scaleX(1);
-    transform: translateY(-50%);
-    background: $primary;
-    transform-origin: right;
-    transition-delay: 0.2s;
-}
-
-.sidebar:hover .sidebar-links .menu-separator {
-    transition-delay: 0s;
-    transform: scaleX(0);
 }
 
 .sidebar-links {
@@ -178,6 +166,17 @@ const hideSidebar = ref(true)
     padding: 15px 10px;
     text-decoration: none;
     transition: 0.2s ease;
+    border-radius: 4px;
+
+    &.active,
+    &:hover {
+        background: $white;
+        color: $primary;
+
+        .bi {
+            color: $primary !important;
+        }
+    }
 }
 
 .sidebar-links li a:hover {

@@ -2,7 +2,8 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import { Colors, ColorsPayload } from '../../types/Colors';
-import { useToast } from 'vue-toast-notification';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 // Reactive properties
 const data = ref<null | Colors>(null);
@@ -15,13 +16,15 @@ const copied = ref(false)
 const copyColorToClipboard = async (color: number[]) => {
     try {
         await navigator.clipboard.writeText(`rgb(${color[0]}, ${color[1]}, ${color[2]})`)
+        toast("Color copied to clipboard!", {
+            autoClose: 5000,
+        });
         copied.value = true
         setTimeout(() => copied.value = false, 2000) // Reset after 2 seconds
     } catch (err) {
         console.error('Failed to copy color: ', err)
     }
 }
-
 
 const payload: ColorsPayload = { model: "default" }
 
@@ -53,7 +56,12 @@ onMounted(() => {
             <ul class="palette-wrapper">
                 <li v-for="color in data?.result">
                     <div class="color" :style="{ backgroundColor: `rgb(${color[0]}, ${color[1]}, ${color[2]})` }"
-                        @click="copyColorToClipboard(color)"></div>
+                        @click="copyColorToClipboard(color)">
+                        <p>
+                            <i class="bi bi-copy"></i>
+                            {{ ` RGB(${color[0]}, ${color[1]}, ${color[2]})` }}
+                        </p>
+                    </div>
                 </li>
             </ul>
             <div class="card-body">
@@ -91,8 +99,27 @@ onMounted(() => {
 
 
         .color {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: $table-cell-padding-x;
             height: 100%;
             width: 100%;
+
+            p {
+                background: rgba($color: $black, $alpha: .4);
+                color: white;
+                opacity: 0;
+                transition: $transition-fade;
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                p {
+                    opacity: 1;
+                }
+            }
         }
 
         &:nth-child(1) {
