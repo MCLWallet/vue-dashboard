@@ -30,15 +30,17 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="card">
-        <img v-show="data" :src="data?.url" class="card-img-top" />
-        <div class="card-body">
-            <h2 class="card-title">NASA Picture of the Day</h2>
-            <h3>{{ data?.title }}</h3>
-            <p v-if="loading">Loading...</p>
-            <p v-else-if="error">{{ error }}</p>
-            <p v-else-if="!data">No data available</p>
-        </div>
+    <div class="widget-wrapper">
+        <h2 class="widget-title">NASA Picture of the Day</h2>
+        <div class="card">
+            <img v-show="data" :src="data?.url" class="card-img-top" />
+            <div class="card-body">
+                <p>{{ data?.title }}</p>
+                <p v-if="loading">Loading...</p>
+                <p v-else-if="error">{{ error }}</p>
+                <p v-else-if="!data">No data available</p>
+            </div>
 
+        </div>
     </div>
 </template>

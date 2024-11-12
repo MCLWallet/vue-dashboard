@@ -30,14 +30,16 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="card film-widget">
-        <div class="card-body">
-            <h2 class="card-title">Quote of the day</h2>
-            <div class="quote-content" v-if="data">
-                <p>"{{ data[0].q }}"</p>
-                <p>- {{ data[0].a }}</p>
+    <div class="widget-wrapper">
+        <h2 class="widget-title">Quote of the day</h2>
+        <div class="card">
+            <div class="card-body">
+                <div class="quote-content" v-if="data">
+                    <h3>"{{ data[0].q }}"</h3>
+                    <p>- {{ data[0].a }}</p>
+                </div>
+                <p v-else>No data available</p>
             </div>
-            <p v-else>No data available</p>
         </div>
     </div>
 </template>

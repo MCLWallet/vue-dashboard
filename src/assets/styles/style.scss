@@ -1,3 +1,5 @@
+@import "./fonts.scss";
+
 // Bootstrap variable overrides
 $custom-border-radius: 1.5rem;
 
@@ -6,6 +8,10 @@ $card-inner-border-radius: $custom-border-radius;
 $navbar-padding-x: 1rem;
 
 $box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+$headings-font-family: Quicksand;
+$headings-font-weight: 200;
+// $paragraph-margin-bottom: 0;
+$grid-gutter-width: 2rem;
 
 // Import all of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";
@@ -30,6 +36,15 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+h1,
+h3 {
+  font-weight: 700;
+}
+
+ul {
+  margin-bottom: 0;
 }
 
 // Bootstrap components

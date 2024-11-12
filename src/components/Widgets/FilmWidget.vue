@@ -30,26 +30,30 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="card film-widget">
-        <div class="card-body">
-            <h2 class="card-title">Film/Series Recommender</h2>
-            <div class="film-content" v-if="data">
-                <h3>
-                    <a :href="data.URL" target="_blank">
-                        {{ data.Title }}
-                    </a>
-                </h3>
-                <h4>{{ data.Year }}</h4>
-                <p>Genre: {{ data.Genres }}</p>
-                <p>Click the film/series title to go to its IMDB page!</p>
+    <div class="widget-wrapper">
+        <h2 class="widget-title">Film/Series Recommender</h2>
+        <div class="card">
+            <div class="card-body">
+                <div class="film-content" v-if="data">
+                    <h3>
+                        <a :href="data.URL" target="_blank">
+                            {{ data.Title }}
+                        </a>
+                    </h3>
+                    <h4>{{ data.Year }}</h4>
+                    <p>Genre: {{ data.Genres }}</p>
+                    <p>Click the film/series title to go to its IMDB page!</p>
+                </div>
+                <p v-else>No data available</p>
+                <button class="btn btn-outline-primary rounded-pill" @click="fetchData" :disabled="loading">
+                    <span v-if="loading" class="spinner-border spinner-border-sm" role="status"
+                        aria-hidden="true"></span>
+                    <span class="sr-only">
+                        <i v-if="!loading" class="bi bi-film"></i>
+                        {{ !loading ? "Another Film" : "Loading..." }}
+                    </span>
+                </button>
             </div>
-            <p v-else>No data available</p>
         </div>
-        <button class="btn btn-primary" @click="fetchData" :disabled="loading">
-            <span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            <span class="sr-only">{{ !loading ? "Another Film" : "Loading..." }}</span>
-        </button>
     </div>
 </template>
-
-<style scoped lang="scss"></style>

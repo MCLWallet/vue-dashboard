@@ -31,7 +31,7 @@ main {
 
 .main-grid {
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: $grid-gutter-width;
 
     @include media-breakpoint-up(sm) {
         grid-template-columns: 1fr 1fr;
