@@ -16,9 +16,37 @@ const hideSidebar = ref(true)
     </nav>
     <aside :class="hideSidebar ? 'sidebar hide' : 'sidebar'">
         <div class="sidebar-header">
-            <i class="bi bi-gear"></i>
-            <h2>Settings</h2>
+            <i class="bi bi-person-circle"></i>
+            <h2>My Account</h2>
         </div>
+        <ul class="sidebar-links">
+            <li>
+                <a href="#"><i class="bi bi-calendar-event"></i>Calendar</a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-chat-dots"></i>Chat
+                </a>
+            </li>
+            <li>
+                <a href="#"><i class="bi bi-bank"></i>Finances</a>
+            </li>
+            <li>
+                <a href="#"><i class="bi bi-clipboard-heart"></i> Health</a>
+            </li>
+            <li>
+                <a href="#"><i class="bi bi-luggage"></i>Travel</a>
+            </li>
+            <li>
+                <a href="#"><i class="bi bi-music-note-beamed"></i>Music</a>
+            </li>
+            <li>
+                <a href="#"><i class="bi bi-gear"></i>Settings</a>
+            </li>
+            <li>
+                <a href="#"><i class="bi bi-box-arrow-left"></i>Logout</a>
+            </li>
+        </ul>
         <div class="weather-widget-wrapper">
             <WeatherWidget />
         </div>
@@ -37,8 +65,8 @@ const hideSidebar = ref(true)
     display: flex;
     overflow-x: hidden;
     flex-direction: column;
-    background: #161a2d;
-    padding: calc($header-height + 20px) 25px 20px;
+    background: $primary;
+    padding: calc($header-height + 20px) 36px 20px;
     transition: all 0.4s ease;
     width: $sidebar-open-width;
 
@@ -69,6 +97,7 @@ const hideSidebar = ref(true)
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        padding-left: 0.9rem;
         gap: .8rem;
 
         .bi {
@@ -79,7 +108,7 @@ const hideSidebar = ref(true)
         h2 {
             opacity: 1;
             transition: $transition-fade;
-            color: #fff;
+            color: $white;
             font-size: 1.25rem;
             font-weight: 600;
             white-space: nowrap;
@@ -91,7 +120,7 @@ const hideSidebar = ref(true)
         }
 
         h4 {
-            color: #fff;
+            color: $white;
             font-weight: 500;
             white-space: nowrap;
             margin: 10px 0;
@@ -116,7 +145,7 @@ const hideSidebar = ref(true)
     height: 1px;
     transform: scaleX(1);
     transform: translateY(-50%);
-    background: #4f52ba;
+    background: $primary;
     transform-origin: right;
     transition-delay: 0.2s;
 }
@@ -132,6 +161,7 @@ const hideSidebar = ref(true)
     height: 80%;
     overflow-y: auto;
     scrollbar-width: none;
+    padding-left: 0.5rem;
 }
 
 .sidebar-links::-webkit-scrollbar {
@@ -142,7 +172,7 @@ const hideSidebar = ref(true)
     display: flex;
     align-items: center;
     gap: 0 20px;
-    color: #fff;
+    color: $white;
     font-weight: 500;
     white-space: nowrap;
     padding: 15px 10px;
@@ -152,14 +182,14 @@ const hideSidebar = ref(true)
 
 .sidebar-links li a:hover {
     color: $primary;
-    background: #fff;
+    background: $white;
     border-radius: 4px;
 }
 
 .weather-widget-wrapper {
     margin-top: auto;
     padding: 12px 10px;
-    background: #fff;
+    background: $white;
     border-radius: 4px;
 }
 

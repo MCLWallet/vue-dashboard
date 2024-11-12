@@ -32,10 +32,12 @@ onMounted(() => {
 
 <template>
     <div class="weather-widget">
-        <p v-if="loading">Loading...</p>
+        <div v-if="loading" class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
         <p v-else-if="error">{{ error }}</p>
         <div v-else-if="data">
-            <p>{{ data.current.temperature_2m }} C°</p>
+            <p>{{ data.current.temperature_2m }}°</p>
         </div>
         <p v-else>No data available</p>
     </div>
